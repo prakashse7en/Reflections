@@ -1,0 +1,38 @@
+What happens when you initialize a repository? Why do you need to do it?
+a new hidden file .git is been created which can be checked using ls -a and this is used to link with the git.
+for eg see below)
+*******************************************************************************
+Praka newbie $ git init
+Initialized empty Git repository in c:/Users/Praka$h/newbie/.git/
+Praka (master #) newbie $ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        one.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+*******************************************************************************
+
+How is the staging area different from the working directory and the repository? What value do you think it offers?
+staging area act as a buffer where we can place files that needs to be added this avoids redundant commits
+
+How can you use the staging area to make sure you have one commit per logical change?
+this should be done by us keeping in mind that we commit after logical changes to avoid redundant commits
+
+What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+when you want test some modifications without affecting the orginal one branches will leand you a hand. It also helps
+in merging with the orginal once the modifications are complete in new versions
+
+How do the diagrams help you visualize the branch structure?
+great it helps me in tracking which commit i was present at
+
+What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+both the results are merged without ommiting the changes based on timestamp .diagramatic way helps in identifying which commit are we at
+
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+pros - automatix merging has less overhead and the it mostly merges the correct lines. 
+In case of manual merging we need to check with other person who has merged and add the approriate lines.
