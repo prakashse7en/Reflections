@@ -8,3 +8,7 @@ Describe the differences between forks, clones, and branches. When would you use
 forks - u need to clone someone else in network not in git .if they add u as a collabrator you can commit in their repository
 clone - you can clone in local to github.local to local
 branches - new version which is independent of master
+
+What is the benefit of having a copy of the last known state of the remote stored locally?
+
+it will help us incase of merge with orgin and master
