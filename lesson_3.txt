@@ -3,3 +3,8 @@ When i want to share my files for editing with my other colleagues
 
 Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
 to keep the files in git files intact and maually merge ,as git will act as back up
+
+Describe the differences between forks, clones, and branches. When would you use one instead of another?
+forks - u need to clone someone else in network not in git .if they add u as a collabrator you can commit in their repository
+clone - you can clone in local to github.local to local
+branches - new version which is independent of master
