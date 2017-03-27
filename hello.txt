@@ -1,1 +1,29 @@
 hello
+
+
+Multiple calls to same API via spring integartion 
+
+Problem definition:
+Initially business api accepts single request and single response
+Currently We receive list of request aggregated as a single request that needs to be sent an business api which accepts only one . So we need to make recursive calls to 
+business Api to achieve this 
+
+Design
+To overcome this we have built an channel , gateway , and splitter for splitting the list and a router which is used for generating channels (in my case it is not working) and aggregated for grouping the response
+
+
+ <int:router input-channel="outSplitChannel" ref="mySplitRouter" method="route" /> 
+		<bean id="mySplitRouter" class="SplitRouter" /> 
+
+		
+In the bean following was added
+		
+		public List<String> route(Request proxyRequest){
+		List<String> listOfCall = new ArrayList<String>();
+		for(AccNbrGroup singNbr:proxyRequest.getGroup()){
+			listOfCall.add("RouteChannel");
+		}
+		return listOfCall;
+	}
+	
+	Problem is the channels are not generated dynamically? Could some one help . in summary i need to call the busineess the for the size of list present in request 
