@@ -1,29 +1,26 @@
-hello
+Defining dynamic channels in scatter gather 
 
+in case of scatter gather static channels are defined(i.e channels are known prior designing ) from which the response will be aggregated .
 
-Multiple calls to same API via spring integartion 
+insert scatter gather pic 
 
-Problem definition:
-Initially business api accepts single request and single response
-Currently We receive list of request aggregated as a single request that needs to be sent an business api which accepts only one . So we need to make recursive calls to 
-business Api to achieve this 
+Is it possible to define dynamic channel .
 
-Design
-To overcome this we have built an channel , gateway , and splitter for splitting the list and a router which is used for generating channels (in my case it is not working) and aggregated for grouping the response
+In my case ,have java arraylist(dynamic) of size 3(size differs each time) like
 
-
- <int:router input-channel="outSplitChannel" ref="mySplitRouter" method="route" /> 
-		<bean id="mySplitRouter" class="SplitRouter" /> 
-
+	ArrayList
+		1-> request for business api call(samp)
+		2-> request for business api call(samp)
+		3-> request for business api call(samp)
+	i.e for each element of arraylist i need to call the business api(samp is the business api, here it should be called 3 times). Since size differs each time , how to apply scather gather spring integration pattern here? Is any other spring integration pattern can be applied here?
 		
-In the bean following was added
+	Things done for above problem  (but below approach is a Sequential way of handling ,is it possible to process each call parallely) :
+
+	Arraylist apiResponse
+	for each element in array list	
+		call business api 
+		apiResponse.add(eachElement Response)
 		
-		public List<String> route(Request proxyRequest){
-		List<String> listOfCall = new ArrayList<String>();
-		for(AccNbrGroup singNbr:proxyRequest.getGroup()){
-			listOfCall.add("RouteChannel");
-		}
-		return listOfCall;
-	}
+		
+spring integration , java , enterprise integration pattern 		
 	
-	Problem is the channels are not generated dynamically? Could some one help . in summary i need to call the busineess the for the size of list present in request 
