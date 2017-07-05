@@ -1,3 +1,9 @@
+Prakash :3447.
+
+Ac.No :  42111367014
+IFSC Code: SCBL0036088
+Name : Mallikarjuna T
+
 Defining dynamic channels in scatter gather 
 
 in case of scatter gather static channels are defined(i.e channels are known prior designing ) from which the response will be aggregated .
