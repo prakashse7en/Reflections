@@ -9,9 +9,9 @@ public class Solution {
     static String feeOrUpfront(int n, int k, int x, int d, int[] p) {
         // Complete this function
         String returnVal = "fee";
-        int feeValue = calculateUpFront();
-        
-        int reult = Math.max(feeValue,d );
+        int feeValue = calculateUpFront(k,x,p);
+        System.out.println(feeValue);
+        int result = Math.max(feeValue,d );
         
         if(d==feeValue){
             returnVal = "fee";
@@ -23,8 +23,8 @@ public class Solution {
     }
     static int calculateUpFront(int k, int x, int[] p){
         int sum =0;
-        for(int i =0;i<p.length,i++){
-            sum = sum+Math.max(k,((x/100)*p[i]);
+        for(int i =0;i<p.length;i++){
+            sum = sum+Math.max(k,((x/100)*p[i]));
         }
         return sum;                               
     }
