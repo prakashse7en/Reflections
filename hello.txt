@@ -1,32 +1,49 @@
-Prakash :3447.
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
-Ac.No :  42111367014
-IFSC Code: SCBL0036088
-Name : Mallikarjuna T
+public class Solution {
 
-Defining dynamic channels in scatter gather 
+    static String feeOrUpfront(int n, int k, int x, int d, int[] p) {
+        // Complete this function
+        String returnVal = "fee";
+        int feeValue = calculateUpFront();
+        
+        int reult = Math.max(feeValue,d );
+        
+        if(d==feeValue){
+            returnVal = "fee";
+        }else if(d == result){
+            returnVal = "upfront";
+        }        
+        
+        return returnVal;
+    }
+    static int calculateUpFront(int k, int x, int[] p){
+        int sum =0;
+        for(int i =0;i<p.length,i++){
+            sum = sum+Math.max(k,((x/100)*p[i]);
+        }
+        return sum;                               
+    }
 
-in case of scatter gather static channels are defined(i.e channels are known prior designing ) from which the response will be aggregated .
-
-insert scatter gather pic 
-
-Is it possible to define dynamic channel .
-
-In my case ,have java arraylist(dynamic) of size 3(size differs each time) like
-
-	ArrayList
-		1-> request for business api call(samp)
-		2-> request for business api call(samp)
-		3-> request for business api call(samp)
-	i.e for each element of arraylist i need to call the business api(samp is the business api, here it should be called 3 times). Since size differs each time , how to apply scather gather spring integration pattern here? Is any other spring integration pattern can be applied here?
-		
-	Things done for above problem  (but below approach is a Sequential way of handling ,is it possible to process each call parallely) :
-
-	Arraylist apiResponse
-	for each element in array list	
-		call business api 
-		apiResponse.add(eachElement Response)
-		
-		
-spring integration , java , enterprise integration pattern 		
-	
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int q = in.nextInt();
+        for(int a0 = 0; a0 < q; a0++){
+            int n = in.nextInt();
+            int k = in.nextInt();
+            int x = in.nextInt();
+            int d = in.nextInt();
+            int[] p = new int[n];
+            for(int p_i = 0; p_i < n; p_i++){
+                p[p_i] = in.nextInt();
+            }
+            String result = feeOrUpfront(n, k, x, d, p);
+            System.out.println(result);
+        }
+        in.close();
+    }
+}
